@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Searched Distances</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        a {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 20px;
+
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);">
+        <a href="/">Go to Home</a>
+        <a href="/export/pdf" id="exportToPDF" class="exportBtn">Export to PDF</a>
+        <a href="/export/excel" id="exportToExcel" class="exportBtn">Export to Excel</a>
+    </div>
+    <table>
+        <tr>
+            <th>From PIN</th>
+            <th>To PIN</th>
+            <th>Distance in km</th>
+        </tr>
+        <% distances.forEach(function(distance) { %>
+            <tr>
+                <td>
+                    <%= distance.fromPin %>
+                </td>
+                <td>
+                    <%= distance.toPin %>
+                </td>
+                <td>
+                    <%= distance.distance %>
+                </td>
+            </tr>
+            <% }); %>
+    </table>
+</body>
+
+</html>
