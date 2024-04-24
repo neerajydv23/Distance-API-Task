@@ -14,7 +14,7 @@ exports.search = catchAsyncErrors(async(req,res)=>{
     const { fromPin, toPin } = req.body;
 
     try {
-      const response = await axios.get(`https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${fromPin}&destinations=${toPin}&key=AIzaSyCJu7BySbddU6LPcW7Nvx1l4K504CdVsvY`);
+      const response = await axios.get(`https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${fromPin}&destinations=${toPin}&key=process.env.API_KEY`);
       
       if (!response.data || !response.data.rows || !response.data.rows[0] || !response.data.rows[0].elements || !response.data.rows[0].elements[0]) {
         return res.status(400).send('Invalid PIN codes or no route found');
